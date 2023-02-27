@@ -12,3 +12,7 @@
 #   output: ckanext-safran_opendata_theme/%(version)s-safran_opendata_theme.css
 #   contents:
 #     - css/safran_opendata_theme.css
+safran_opendata_theme-css:
+  contents:
+    - safran_opendata_theme.css
+  output: safran_opendata_theme/safran_opendata_theme.css
