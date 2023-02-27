@@ -158,7 +158,7 @@ def get_deletion_reason_template():
     
 class SafranOpendataThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-
+    plugins.implements(plugins.ITemplateHelpers)
     # IConfigurer
 
     def update_config(self, config_):
