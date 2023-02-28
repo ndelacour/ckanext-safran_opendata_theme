@@ -17,8 +17,8 @@ def ytp_comments_enabled():
 
 
 def is_datarequests_enabled():
-#    return "datarequests" in toolkit.config.get('ckan.plugins', False)
-     return False
+     return "datarequests" in toolkit.config.get('ckan.plugins', False)
+     #return False
 
 def get_all_groups():
     groups = toolkit.get_action('group_list')(
