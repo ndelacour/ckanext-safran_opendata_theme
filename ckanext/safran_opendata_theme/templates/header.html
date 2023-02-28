@@ -36,7 +36,6 @@
         {% endblock %} {% block header_account_log_out_link %}
           {{ super() }}
         {% endblock %} {% endblock %}
-	 <li>{{ h.is_datarequests_enabled() }}</li>
         {% if h.is_datarequests_enabled() %}
         <li><a href="{{ h.url_for('datarequest.index') }}">Request data</a></li>
         {% endif %}
