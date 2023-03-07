@@ -1,4 +1,5 @@
 {% extends "page.html" %}
+{% set stats = h.get_site_statistics() %}
 {% set homepage_style = ( g.homepage_style or '1' ) %}
 
 {% block subtitle %}{{ _("Welcome") }}{% endblock %}
@@ -16,7 +17,7 @@
                 <h1>Discover, use and request SAFRAN open data</h1>
             </div>
             <div class="hero-banner__search">
-                <h2 class="hero-banner__search-title">Search over xxx datasets and xxx resources</h2>
+                <h2 class="hero-banner__search-title">Search over {{ h.SI_number_span(stats.dataset_count) }} datasets from {{ h.SI_number_span(stats.organization_count) }} organisations</h2>
                 <form action="/dataset" method="get" autocomplete="off">
                     <input type="text" name="q" placeholder="E.g Environment" aria-label="Search datasets" />
                     <button type="submit"><span class="sr-only">Submit search</span></button>
