@@ -137,8 +137,7 @@ class SafranOpendataThemePlugin(plugins.SingletonPlugin):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic',
-            'safran_opendata_theme')
+        toolkit.add_resource('fanstatic', 'safran_opendata_theme')
         #toolkit.add_resource('assets', 'publications_qld_theme')
 
     # ITemplateHelpers
