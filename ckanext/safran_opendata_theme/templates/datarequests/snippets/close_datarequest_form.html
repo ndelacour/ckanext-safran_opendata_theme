@@ -1,0 +1,54 @@
+{% import 'macros/form.html' as form %}
+{% set form_horizontal = 'form-horizontal' if h.ckan_version()[:3] <= '2.7' else '' %}
+
+<form class="dataset-form {{ form_horizontal }}" method="post" data-module="basic-form" action enctype="multipart/form-data">
+
+  {% block errors %}{{ form.errors(errors_summary) }}{% endblock %}
+
+  <input type="hidden" id="id" name="id" value="{{ datarequest.get('id', '') }}" />
+
+  {% block closing_circumstance %}
+    {% if h.closing_circumstances_enabled %}
+        {% set type = 'asset' if h.is_ckan_29() else 'resource' %}
+        {% include "snippets/datarequest_close_" ~ type ~ ".html" %}
+        {% set close_circumstances = h.get_closing_circumstances() %}
+        {% set selected_close_circumstance = datarequest.get('close_circumstance', '') %}
+
+        <input type="hidden" id="field-condition" name="condition" />
+        <div class="control-group control-full form-group">
+          <label class="control-label" for="field-close_circumstance">{{ _("Circumstances") }}</label>
+          <div class="controls">
+            <select id="field-close_circumstance" name="close_circumstance" >
+              {% for close_circumstance in close_circumstances  %}
+                {% set circumstance = close_circumstance.get('circumstance', '') %}
+                {% set condition = close_circumstance.get('condition', '') %}
+                <option value="{{ circumstance }}" {% if circumstance ==  selected_close_circumstance %} selected{% endif %} data-condition="{{ condition }}">{{ circumstance }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        {{ form.input('approx_publishing_date', id='field-approx_publishing_date', label=_('Approximate publishing date'), placeholder="yyyy-mm-dd", type='date', error=errors.approx_publishing_date) }}
+      {% endif %}
+  {% endblock %}
+
+  {% block package_basic_fields_tags %}
+    <div class="control-group control-full form-group">
+      <label class="control-label" for="field-accepted_dataset_id">{{ _("Accep. Dataset") }}</label>
+      <div class="controls">
+        <select id="field-accepted_dataset_id" name="accepted_dataset_id" data-module="autocomplete">
+          <option value="" selected="selected">No Dataset</option>
+          {% for dataset in datasets  %}
+            <option value="{{ dataset.get('name') }}">{{ dataset.get('title') }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block form_actions %}
+    <div class="form-actions">
+      <button class="btn btn-danger" type="submit" name="close">{{ _('Close Data Request') }}</button>
+    </div>
+  {% endblock %}
+
+</form>
