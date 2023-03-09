@@ -1,4 +1,0 @@
-safran_opendata_style:  # name of asset
-  output: safran_opendata_theme/safran_opendata_theme.css  # actual path, where generated file will be stored
-  contents: # list of files that are included into asset
-    - safran_opendata_theme.css
