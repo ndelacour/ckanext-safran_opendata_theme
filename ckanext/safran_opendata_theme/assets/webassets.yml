@@ -7,8 +7,8 @@
 #     preload:
 #       - base/main
 
-safran_opendata_theme-css:
-   filter: cssrewrite
-   output: ckanext-safran_opendata_theme/%(version)s-safran_opendata_theme.css
-   contents:
-     - css/safran_opendata_theme.css
+#safran_opendata_theme-css:
+#   filter: cssrewrite
+#   output: ckanext-safran_opendata_theme/%(version)s-safran_opendata_theme.css
+#   contents:
+#     - css/safran_opendata_theme.css
