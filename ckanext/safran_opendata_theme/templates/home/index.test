@@ -1,2 +1,0 @@
-<p>test</p>
-<p>{{ h.is_datarequests_enabled() }}</p>
