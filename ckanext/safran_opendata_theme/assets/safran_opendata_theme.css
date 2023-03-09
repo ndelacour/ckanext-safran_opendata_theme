@@ -1,3 +1,9 @@
+/* Fixes a issue with dataset & resource select or multi-select elements not displaying correctly when using the scheming extension */
+.select2-container.form-control {
+  height: 100%;
+  padding: 0px;
+}
+
 .visuallyhidden,.sr-only {
     border: 0;
     clip: rect(0 0 0 0);
