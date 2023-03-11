@@ -1,4 +1,5 @@
 {% extends "page.html" %}
+{% set stats = h.get_site_statistics() %}
 {% set homepage_style = ( g.homepage_style or '1' ) %}
 
 {% block subtitle %}{{ _("Welcome") }}{% endblock %}
@@ -16,7 +17,7 @@
                 <h1>Discover, use and request SAFRAN open data</h1>
             </div>
             <div class="hero-banner__search">
-                <h2 class="hero-banner__search-title">Search over 2,700 datasets and 11,000 resources</h2>
+                <h2 class="hero-banner__search-title">Search over {{ h.SI_number_span(stats.dataset_count) }} datasets from {{ h.SI_number_span(stats.organization_count) }} organisations/h2>
                 <form action="/dataset" method="get" autocomplete="off">
                     <input type="text" name="q" placeholder="E.g Environment" aria-label="Search datasets" />
                     <button type="submit"><span class="sr-only">Submit search</span></button>
@@ -31,29 +32,46 @@
             <article class="module">
                 <div class="module-content">
                     <div class="tiles">
-                      <div class="tiles__item">
-                          <a href="https://www.qld.gov.au/data/news-and-events/new-look-data-portal" aria-label="Link to Welcome to the new open data portal" title="Welcome to the new open data portal" class="tiles__img" style="background-image: url('https://www.qld.gov.au/__data/assets/image/0020/104285/new-site-launch.jpg');"></a>
-                          <div class="tiles__title">
-                              <a href="https://www.qld.gov.au/data/news-and-events/new-look-data-portal">Welcome to the new open data portal</a>
-                          </div>
-                          <div class="tiles__sub-title">
-                              <a href="https://www.qld.gov.au/data/news-and-events">News and events</a>
-                          </div>
-                          <div class="tiles__content">
-                              <p>The new and improved open data portal is open for business… and for researchers, and for citizen data scientists, and…</p>
-                          </div>
-                          <div class="tiles__link">
-                              <a href="https://www.qld.gov.au/data/news-and-events/new-look-data-portal">Read more</a>
-                          </div>
-                      </div>
                       <div class="tiles__item tiles__item--bg-title">
-
                           <div class="tiles__title">Popular datasets</div>
-
-                          <div class="tiles__content">
-                              <ul><li><a href="/dataset/active-mobile-speed-camera-sites">Mobile speed camera sites</a></li><li><a href="/dataset/crash-data-from-queensland-roads">Crash data - Queensland roads</a></li><li><a href="/dataset/fireworks">Upcoming fireworks displays</a></li><li><a href="/dataset/groundwater-database-queensland">Groundwater Database</a></li><li><a href="/dataset/rural-properties-queensland">Rural properties</a></li><li><a href="/dataset/jp-or-cdec-location">JP and CDec signing locations</a></li><li><a href="/dataset/business-discount-directory">Business Discount Directory</a></li><li><a href="/dataset/coastal-data-system-near-real-time-wave-data">Near real-time wave data</a></li><li><a href="/dataset/queensland-government-contracts-directory-awarded-contracts">QGov awarded contracts</a></li></ul>
-                          </div>
+                            <div class="tiles__content">
+                                <ul>
+                                    <li><a href="/dataset/pma">MAR$ FAA PMA</a></li>
+                                    <li><a href="/dataset/marketprice">MAR$ Market prices</a></li>
+                                    <li><a href="/dataset/cmh-energy-daily">CMH Electricity usage</a></li>
+                                </ul>
+                            </div>
                       </div>
+                     <div class="tiles__item">
+                        <a href="/pages/welcome-to-the-new-open-data-portal" aria-label="Link to Welcome to the new open data portal" title="Welcome to the new open data portal" class="tiles__img" style="background-image: url('https://www.qld.gov.au/__data/assets/image/0020/104285/new-site-launch.jpg');"></a>
+                        <div class="tiles__title">
+                            <a href="/pages/welcome-to-the-new-open-data-portal">Welcome to the new open data portal</a>
+                        </div>
+                        <div class="tiles__sub-title">
+                            <a href="/pages">News and events</a>
+                        </div>
+                        <div class="tiles__content">
+                            <p>The new and improved open data portal is open for business… and for researchers, and for citizen data scientists, and…</p>
+                        </div>
+                        <div class="tiles__link">
+                            <a href="/pages/welcome-to-the-new-open-data-portal">Read more</a>
+                        </div>
+                    </div>
+                     <div class="tiles__item">
+                        <a href="https://datasquare.analytics.safran/" aria-label="Link to DataSquare 4.0!" title="DataSquare 4.0" class="tiles__img" style="background-image: url('https://www.qld.gov.au/__data/assets/image/0018/102753/georeference.PNG');"></a>
+                        <div class="tiles__title">
+                            <a href="https://datasquare.analytics.safran/">DataSquare 4.0!</a>
+                        </div>
+                        <div class="tiles__sub-title">
+                            <a href="https://datasquare.analytics.safran/">News and events</a>
+                        </div>
+                        <div class="tiles__content">
+                            <p>Get more out of your data, by using DataSquare and the Safran Analytics toolbox.</p>
+                        </div>
+                        <div class="tiles__link">
+                            <a href="https://datasquare.analytics.safran/">Read more</a>
+                        </div>
+                    </div>
                     </div><!-- .tiles -->
                 </div>
             </article>
