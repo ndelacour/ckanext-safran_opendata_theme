@@ -1,4 +1,4 @@
-publications_qld-css:
+safran_opendata-css:
   contents:
-    - publications_qld.css
-  output: publications_qld_theme/%(version)s_publications_qld.css
+    - safran_opendata.css
+  output: safran_opendata_theme/%(version)s_safran_opendata.css
