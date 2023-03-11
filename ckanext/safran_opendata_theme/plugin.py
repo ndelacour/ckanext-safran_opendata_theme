@@ -70,7 +70,7 @@ def set_external_resources():
     if 'data.qld' in environment:
         return ''
     else:
-        return '//www.data.qld.gov.au'
+        return ''
 
 
 def is_prod():
