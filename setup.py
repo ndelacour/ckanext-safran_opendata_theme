@@ -73,7 +73,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        safran_opendata_theme=ckanext.safran_opendata_theme.plugin:PublicationsQldThemePlugin
+        safran_opendata_theme=ckanext.safran_opendata_theme.plugin:SafranOpenDataThemePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
