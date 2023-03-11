@@ -1,4 +1,4 @@
 include README.md
 include LICENSE
 include requirements.txt
-recursive-include ckanext/publications_qld_theme *.html *.json *.js *.less *.css *.mo
+recursive-include ckanext/safran_opendata_theme *.html *.json *.js *.less *.css *.mo
