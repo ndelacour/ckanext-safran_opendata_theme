@@ -1,7 +1,0 @@
-
-        [ckan.plugins]
-        safran_opendata_theme=ckanext.safran_opendata_theme.plugin:SafranOpendataThemePlugin
-
-        [babel.extractors]
-        ckan = ckan.lib.extract:extract_ckan
-    
