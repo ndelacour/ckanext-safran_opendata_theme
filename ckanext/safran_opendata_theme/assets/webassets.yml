@@ -1,0 +1,4 @@
+publications_qld-css:
+  contents:
+    - publications_qld.css
+  output: publications_qld_theme/%(version)s_publications_qld.css

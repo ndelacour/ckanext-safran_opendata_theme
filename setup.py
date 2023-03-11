@@ -16,10 +16,10 @@ setup(
     long_description='',
 
     # The project's main homepage.
-    url='https://github.com/qld-gov-au/ckanext-publications-qld-theme',
+    url='https://github.com/ndelacour/ckanext-safran_opendata_theme',
 
     # Author details
-    author='Queensland Government and Salsa Digital',
+    author='NVANTHOF',
     author_email='',
 
     # Choose your license
@@ -73,7 +73,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        publications_qld_theme=ckanext.publications_qld_theme.plugin:PublicationsQldThemePlugin
+        safran_opendata_theme=ckanext.safran_opendata_theme.plugin:PublicationsQldThemePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
