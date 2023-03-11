@@ -11,13 +11,13 @@
 
 <div id="content" class={{ h.set_background_image_class()  }}>
     <h1 class="visuallyhidden">Open Data Homepage</h1>
-    <div class="hero-banner" style="background-image: url('/images/SAF2016_0195691.jpg');">
+    <div class="hero-banner" style="background-image: url('/assets/bridge.jpg');">
         <div class="hero-banner__inner container">
             <div class="hero-banner__text-wrap">
                 <h1>Discover, use and request SAFRAN open data</h1>
             </div>
             <div class="hero-banner__search">
-                <h2 class="hero-banner__search-title">Search over {{ h.SI_number_span(stats.dataset_count) }} datasets from {{ h.SI_number_span(stats.organization_count) }} organisations/h2>
+                <h2 class="hero-banner__search-title">Search over {{ h.SI_number_span(stats.dataset_count) }} datasets from {{ h.SI_number_span(stats.organization_count) }} organisations</h2>
                 <form action="/dataset" method="get" autocomplete="off">
                     <input type="text" name="q" placeholder="E.g Environment" aria-label="Search datasets" />
                     <button type="submit"><span class="sr-only">Submit search</span></button>
