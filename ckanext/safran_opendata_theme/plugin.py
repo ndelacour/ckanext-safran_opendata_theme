@@ -148,7 +148,7 @@ def is_ckan_29():
     return check_ckan_version(min_version='2.9.0')
 
 
-class PublicationsQldThemePlugin(plugins.SingletonPlugin):
+class SafranOpenDataThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     if is_ckan_29():
@@ -159,7 +159,7 @@ class PublicationsQldThemePlugin(plugins.SingletonPlugin):
     def update_config(self, config_):
         add_template_directory(config_, 'templates')
         add_public_directory(config_, 'public')
-        add_resource('assets', 'publications_qld_theme')
+        add_resource('assets', 'safran_opendata_theme')
 
     # ITemplateHelpers
     def get_helpers(self):
