@@ -1,33 +1,26 @@
-# -*- coding: utf-8 -*-
-# Always prefer setuptools over distutils
-from setuptools import setup, find_packages
-from codecs import open  # To use a consistent encoding
+# encoding: utf-8
+from setuptools import setup, find_packages  # Always prefer setuptools over distutils
 from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-# Get the long description from the relevant file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
-
 setup(
-    name='''ckanext-safran_opendata_theme''',
+    name='ckanext-publications-qld-theme',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''SAFRAN Analytics OpenData theme''',
-    long_description=long_description,
-    long_description_content_type="text/markdown",
+    description='Custom extension for Publications QLD',
+    long_description='',
 
     # The project's main homepage.
-    url='https://github.com/SAFRAN/ckanext-safran_opendata_theme',
+    url='https://github.com/qld-gov-au/ckanext-publications-qld-theme',
 
     # Author details
-    author='''NVANTHOF''',
-    author_email='''norbert.vant-hof@safrangroup.com''',
+    author='Queensland Government and Salsa Digital',
+    author_email='',
 
     # Choose your license
     license='AGPL',
@@ -38,7 +31,7 @@ setup(
         # 3 - Alpha
         # 4 - Beta
         # 5 - Production/Stable
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
 
         # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
@@ -48,34 +41,30 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
 
-
     # What does your project relate to?
-    keywords='''CKAN''',
+    keywords='CKAN',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
-        namespace_packages=['ckanext'],
+    namespace_packages=['ckanext'],
 
     install_requires=[
-      # CKAN extensions should not list dependencies here, but in a separate
-      # ``requirements.txt`` file.
-      #
-      # http://docs.ckan.org/en/latest/extensions/best-practices.html
-      # add-third-party-libraries-to-requirements-txt
+        # CKAN extensions should not list dependencies here, but in a separate
+        # ``requirements.txt`` file.
+        #
+        # http://docs.ckan.org/en/latest/extensions/best-practices.html#add-third-party-libraries-to-requirements-txt
     ],
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
     include_package_data=True,
-    package_data={
-    },
+    package_data={},
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages.
-    # see http://docs.python.org/3.4/distutils/setupscript.html
-    # installing-additional-files
+    # see http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
     data_files=[],
 
@@ -84,7 +73,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        safran_opendata_theme=ckanext.safran_opendata_theme.plugin:SafranOpendataThemePlugin
+        publications_qld_theme=ckanext.publications_qld_theme.plugin:PublicationsQldThemePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan

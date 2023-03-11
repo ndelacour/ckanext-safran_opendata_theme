@@ -1,123 +1,220 @@
-[![Tests](https://github.com/SAFRAN/ckanext-safran_opendata_theme/workflows/Tests/badge.svg?branch=main)](https://github.com/SAFRAN/ckanext-safran_opendata_theme/actions)
+# ckanext-publications-qld-theme
 
-# ckanext-safran_opendata_theme
+A custom CKAN extension for Publications.Qld
 
-**TODO:** Put a description of your extension here:  What does it do? What features does it have? Consider including some screenshots or embedding a video!
-
+[![CircleCI](https://circleci.com/gh/qld-gov-au/ckanext-publications-qld-theme/tree/develop.svg?style=shield)](https://circleci.com/gh/qld-gov-au/ckanext-publications-qld-theme/tree/develop)
 
 ## Requirements
 
-**TODO:** For example, you might want to mention here which versions of CKAN this
-extension works with.
-
-If your extension works across different versions you can add the following table:
+This theme was written to work with python 2 and CKAN 2.8.x. Qld Gov has now migrated to 2.9.x py2 and by end of 2022 will be on 2.9.x+ py3.
 
 Compatibility with core CKAN versions:
 
-| CKAN version    | Compatible?   |
-| --------------- | ------------- |
-| 2.6 and earlier | not tested    |
-| 2.7             | not tested    |
-| 2.8             | not tested    |
-| 2.9             | not tested    |
-
-Suggested values:
-
-* "yes"
-* "not tested" - I can't think of a reason why it wouldn't work
-* "not yet" - there is an intention to get it working
-* "no"
+| CKAN version    | Compatible?     |
+|-----------------|-----------------|
+| 2.6 and earlier | no              |
+| 2.7             | no              |
+| 2.8             | testing dropped |
+| 2.9.5+ py2      | yes             |
+| 2.9.5+ py3      | yes             |
 
 
-## Installation
+## Local environment setup
+- Make sure that you have latest versions of all required software installed:
+  - [Docker](https://www.docker.com/) [Docs](https://docs.docker.com/install/)
+    [Mac Install](https://docs.docker.com/docker-for-mac/install/)
+    ```
+    Linux (Ubuntu)
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt-get update
+    sudo apt-get install \
+      apt-transport-https \
+      ca-certificates \
+      curl \
+      gnupg-agent \
+      software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository \
+     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+     $(lsb_release -cs) \
+     stable"
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    ```
+    If you don't want sudo infront of docker [non-root user manage](https://docs.docker.com/install/linux/linux-postinstall/)
+    ```text
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+    sudo chmod g+rwx "~$USER/.docker" -R
+    ```
+  - [Docker Compose](https://docs.docker.com/compose/)
+    ```
+    sudo pip install docker-compose
+    ```
+  - [Pygmy](https://pygmy.readthedocs.io/)
+    ```
+    sudo gem install pygmy
+    ```
+  - [Ahoy](https://github.com/ahoy-cli/ahoy) [Docs](https://ahoy-cli.readthedocs.io/en/latest/)
+    ```
+    Linux
+    sudo wget https://github.com/devinci-code/ahoy/releases/download/2.0.0/ahoy-bin-linux-amd64 -O /usr/local/bin/ahoy && sudo chown $USER /usr/local/bin/ahoy && chmod +x /usr/local/bin/ahoy
+    ```
+    ```text
+    OSX
+    brew tap devinci-code/tap
+    brew install ahoy
+    # For v2 which is still alpha (see below)
+    brew install ahoy --HEAD
+    ```
+- Make sure that all local web development services are shut down (Apache/Nginx, Mysql, MAMP etc).
+- Checkout project repository (in one of the [supported Docker directories](https://docs.docker.com/docker-for-mac/osxfs/#access-control)).
+- `pygmy up`
+- `ahoy build`
 
-**TODO:** Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
-
-To install ckanext-safran_opendata_theme:
-
-1. Activate your CKAN virtual environment, for example:
-
-     . /usr/lib/ckan/default/bin/activate
-
-2. Clone the source and install it on the virtualenv
-
-    git clone https://github.com/SAFRAN/ckanext-safran_opendata_theme.git
-    cd ckanext-safran_opendata_theme
-    pip install -e .
-	pip install -r requirements.txt
-
-3. Add `safran_opendata_theme` to the `ckan.plugins` setting in your CKAN
-   config file (by default the config file is located at
-   `/etc/ckan/default/ckan.ini`).
-
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
-
-     sudo service apache2 reload
+Use `admin`/`password` to login to CKAN.
 
 
-## Config settings
+### If behind a proxy
 
-None at present
+Add proxy details to docker daemon via https://docs.docker.com/config/daemon/systemd/
+* Create base folder if not existing
+  ```sudo mkdir -p /etc/systemd/system/docker.service.d```
+* add http-proxy file
+  ```sudo vi /etc/systemd/system/docker.service.d/http-proxy.conf```
+  with details
+  ```
+  [Service]
+  Environment="HTTP_PROXY=http://localhost:3128/"
+  ```
+* add https-proxy file
+  ```bash
+  sudo vi /etc/systemd/system/docker.service.d/https-proxy.conf
+  ```
+  with details
+  ```bash
+  [Service]
+  Environment="HTTP_PROXY=http://localhost:3128/"
+  ```
 
-**TODO:** Document any optional config settings here. For example:
+* Reload systemd
+```
+  sudo systemctl daemon-reload
+  sudo systemctl restart docker
+  ```
+* ensure /etc/gemrc has your proxy
+  ```
+  http_proxy: http://localhost:3128
+  https_proxy: http://localhost:3128
+  ```
+* Configure internal proxy settings in the docker machines form [here](https://docs.docker.com/network/proxy/)
 
-	# The minimum number of hours to wait before re-checking a resource
-	# (optional, default: 24).
-	ckanext.safran_opendata_theme.some_setting = some_default_value
+  ~/.docker/config.json
+    ```
+    {
+      "proxies":
+    {
+      "default":
+    {
+      "httpProxy": "http://hostexternalip:3128",
+      "httpsProxy": "http://hostexternalip:3128"
+    }
+    }
+    }
+    ```
 
 
-## Developer installation
+That should be it. If you still have problems you can also update ruby proxy and internal docker environment settings
 
-To install ckanext-safran_opendata_theme for development, activate your CKAN virtualenv and
-do:
+* if you have squid proxy please ensure you allow docker containers to access it ensure these records exist
+```text
+http_access allow local-net
 
-    git clone https://github.com/SAFRAN/ckanext-safran_opendata_theme.git
-    cd ckanext-safran_opendata_theme
-    python setup.py develop
-    pip install -r dev-requirements.txt
+acl local-net src ${your external ip address}/32 # replace ${your external ip address} with your external ip
+acl local-net src 10.0.0.0/8 # RFC1918 possible internal network
+acl local-net src 172.16.0.0/1 # RFC1918 possible internal network
+acl local-net src 192.168.0.0/16 # RFC1918 possible internal network
+acl local-net src fc00::/7 # RFC 4193 local private network range
+acl local-net src fe80::/10 # RFC 4291 link-local (directly plugged) machines
 
+acl SSL_ports port 443
+acl Safe_ports port 80    # http
+acl CONNECT method CONNECT
 
-## Tests
+acl local-servers dstdomain .amazee.io
+always_direct allow local-servers
+always_direct allow localnet
+```
 
-To run the tests, do:
+* update /etc/hosts
+```text
+127.0.0.1 docker.amazee.io adminer.docker.amazee.io mailhog.docker.amazee.io ckanext-publications-qld-theme.docker.amazee.io
+```
 
-    pytest --ckan-ini=test.ini
+## Available `ahoy` commands
+Run each command as `ahoy <command>`.
+  ```
+   build        Build or rebuild project.
+   clean        Remove containers and all build files.
+   cli          Start a shell inside CLI container or run a command.
+   doctor       Find problems with current project setup.
+   down         Stop Docker containers and remove container, images, volumes and networks.
+   flush-redis  Flush Redis cache.
+   info         Print information about this project.
+   install-site Install a site.
+   lint         Lint code.
+   logs         Show Docker logs.
+   pull         Pull latest docker images.
+   reset        Reset environment: remove containers, all build, manually created and Drupal-Dev files.
+   restart      Restart all stopped and running Docker containers.
+   start        Start existing Docker containers.
+   stop         Stop running Docker containers.
+   test-bdd     Run BDD tests.
+   test-unit    Run unit tests.
+   up           Build and start Docker containers.
+  ```
 
+## Coding standards
+Python code linting uses [flake8](https://github.com/PyCQA/flake8) with configuration captured in `.flake8` file.
 
-## Releasing a new version of ckanext-safran_opendata_theme
+Set `ALLOW_LINT_FAIL=1` in `.env` to allow lint failures.
 
-If ckanext-safran_opendata_theme should be available on PyPI you can follow these steps to publish a new version:
+## Nose tests
+`ahoy test-unit`
 
-1. Update the version number in the `setup.py` file. See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version numbers.
+Set `ALLOW_UNIT_FAIL=1` in `.env` to allow unit test failures.
 
-2. Make sure you have the latest version of necessary packages:
+## Behavioral tests
+`ahoy test-bdd`
 
-    pip install --upgrade setuptools wheel twine
+Set `ALLOW_BDD_FAIL=1` in `.env` to allow BDD test failures.
 
-3. Create a source and binary distributions of the new version:
+### How it works
+We are using [Behave](https://github.com/behave/behave) BDD _framework_ with additional _step definitions_ provided by [Behaving](https://github.com/ggozad/behaving) library.
 
-       python setup.py sdist bdist_wheel && twine check dist/*
+Custom steps described in `test/features/steps/steps.py`.
 
-   Fix any errors you get.
+Test scenarios located in `test/features/*.feature` files.
 
-4. Upload the source distribution to PyPI:
+Test environment configuration is located in `test/features/environment.py` and is setup to connect to a remote Chrome
+instance running in a separate Docker container.
 
-       twine upload dist/*
+During the test, Behaving passes connection information to [Splinter](https://github.com/cobrateam/splinter) which
+instantiates WebDriver object and establishes connection with Chrome instance. All further communications with Chrome
+are handled through this driver, but in a developer-friendly way.
 
-5. Commit any outstanding changes:
+For a list of supported step-definitions, see https://github.com/ggozad/behaving#behavingweb-supported-matcherssteps.
 
-       git commit -a
-       git push
+## Automated builds (Continuous Integration)
+In software engineering, continuous integration (CI) is the practice of merging all developer working copies to a shared mainline several times a day.
+Before feature changes can be merged into a shared mainline, a complete build must run and pass all tests on CI server.
 
-6. Tag the new release of the project on GitHub with the version number from
-   the `setup.py` file. For example if the version number in `setup.py` is
-   0.0.1 then do:
+This project uses [Circle CI](https://circleci.com/) as a CI server: it imports production backups into fully built codebase and runs code linting and tests. When tests pass, a deployment process is triggered for nominated branches (usually, `master` and `develop`).
 
-       git tag 0.0.1
-       git push --tags
+Add `[skip ci]` to the commit subject to skip CI build. Useful for documentation changes.
 
-## License
-
-[AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html)
+### SSH
+Circle CI supports shell access to the build for 120 minutes after the build is finished when the build is started with SSH support. Use "Rerun job with SSH" button in Circle CI UI to start build with SSH support.
