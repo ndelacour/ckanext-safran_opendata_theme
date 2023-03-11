@@ -73,15 +73,7 @@
       <span class="sr-only">Open/Close Mobile Menu</span>
     </button>
     <hgroup class="header-image pull-left">
-      <!--
-                <img src="https://www.data.qld.gov.au/__data/assets/file/0014/100832/qld-gov-open-data-logo.svg" height="37px" alt="Queensland Government">
-
-      <a class="logo" href="https://www.qld.gov.au" title="Link to Queensland Gov website">
-        <img src="https://www.data.qld.gov.au/__data/assets/file/0035/218789/qg-coa-white.svg" alt="Queensland Government" class="hidden-xs">
-        <img src="https://www.data.qld.gov.au/__data/assets/file/0027/218790/qg-coa-stacked-white.svg" alt="Queensland Government" class="hidden-sm hidden-md hidden-lg">
-        <img src="https://www.data.qld.gov.au/__data/assets/file/0028/218791/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-xs hidden-sm hidden-md hidden-lg qg-print-coat-of-arms">
-      </a>
-      -->
+      <img src="https://www.safran-group.com/themes/custom/safran_fo/public/images/logo-white.svg" height="37px" alt="SAFRAN Analytics">
       <div class="header__data-portal">
         <a href="/">Open Data portal</a>
       </div>
@@ -92,10 +84,8 @@
       <nav class="section navigation">
         <ul class="nav nav-pills">
           {% block header_site_navigation_tabs %}
-          {% if h.current_url().startswith('/dataset/publishing-standards-publications-qld-gov-au') %}
+          {% if h.current_url().startswith('/dataset/pages') %}
             {% set standards_active=True %}
-          {% elif h.current_url().startswith('/dataset/gazettes-') or h.current_url().startswith('/group/gazettes-') %}
-            {% set gazettes_active=True %}
           {% elif h.current_url().startswith('/organization') %}
             {% set organization_active=True %}
           {% elif h.current_url() != '/' %}
@@ -104,13 +94,10 @@
           {% set dataset_search_route = 'dataset.search' if h.is_ckan_29() else 'search' %}
           <li {% if publications_active %}class="active"{% endif %}><a href="{{ h.url_for(dataset_search_route) }}">Data</a></li>
           <li {% if standards_active %}class="active"{% endif %}>
-            <a href="/dataset/publishing-standards-publications-qld-gov-au" >Standards</a>
+            <a href="/dataset/pages/" >Standards</a>
           </li>
           <li {% if organization_active %}class="active"{% endif %}>
             <a href="/organization">Organisations</a>
-          </li>
-          <li {% if gazettes_active %}class="active"{% endif %}>
-            <a href="/gazettes-current">Gazettes</a>
           </li>
           <li>
             <a href="https://www.qld.gov.au/contact-us">Contact</a>
