@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="234.669" height="43.961" viewBox="0 0 234.669 43.961">
+  <defs>
+    <filter id="Tracé_5896" x="0" y="14.273" width="38.17" height="29.688" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Tracé_5898" x="13.384" y="2.361" width="31.314" height="41.6" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_4372" data-name="Groupe 4372" transform="translate(-118.192 -746.215)">
+    <text id="DataSquare_4.0_" data-name="DataSquare 4.0  " transform="translate(173.861 752.576)" fill="#ed9720" font-size="24" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="0" y="22">Data</tspan><tspan y="22" font-size="22" font-family="ArialMT, Arial" font-weight="400">Square</tspan><tspan y="22" font-size="17" font-family="ArialMT, Arial" font-weight="400"> </tspan><tspan y="22">4.0</tspan><tspan y="22" xml:space="preserve" font-family="ArialMT, Arial" font-weight="400">  </tspan></text>
+    <g id="Groupe_4338" data-name="Groupe 4338" transform="translate(-12.784 -1319.785)">
+      <g id="Groupe_3952" data-name="Groupe 3952" transform="translate(133.433 2066)">
+        <circle id="Ellipse_28" data-name="Ellipse 28" cx="20.161" cy="20.161" r="20.161" transform="translate(0 0)" fill="#ef9921"/>
+      </g>
+    </g>
+    <g id="Groupe_4339" data-name="Groupe 4339" transform="translate(-460.221 -1688.669)">
+      <g id="Groupe_4006" data-name="Groupe 4006" transform="translate(587.413 2443.245)">
+        <g id="Groupe_3998" data-name="Groupe 3998" transform="translate(0 0)">
+          <g id="Groupe_3971" data-name="Groupe 3971" transform="translate(0)">
+            <path id="Tracé_5896-2" data-name="Tracé 5896" d="M0,87.176,6.6,98.864H20.17L13.384,87.176Z" transform="translate(0 -75.264)" fill="#fff"/>
+            <path id="Tracé_5897" data-name="Tracé 5897" d="M6.678,0,0,11.912H13.384L20.17,0Z" transform="translate(0 0)" fill="#fff"/>
+            <path id="Tracé_5898-2" data-name="Tracé 5898" d="M104.732,0,97.946,11.912,104.732,23.6l6.527-11.8Z" transform="translate(-84.562 0)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_4340" data-name="Groupe 4340" transform="translate(-460.221 -1688.669)">
+      <g id="Groupe_4006-2" data-name="Groupe 4006" transform="translate(587.413 2443.245)">
+        <g id="Groupe_3998-2" data-name="Groupe 3998" transform="translate(0 0)">
+          <g id="Groupe_3971-2" data-name="Groupe 3971" transform="translate(0)">
+            <g transform="matrix(1, 0, 0, 1, -9, -8.36)" filter="url(#Tracé_5896)">
+              <path id="Tracé_5896-3" data-name="Tracé 5896" d="M0,87.176,6.6,98.864H20.17L13.384,87.176Z" transform="translate(9 -66.9)" fill="#fff"/>
+            </g>
+            <path id="Tracé_5897-2" data-name="Tracé 5897" d="M6.678,0,0,11.912H13.384L20.17,0Z" transform="translate(0 0)" fill="rgba(239,153,33,0.52)"/>
+            <g transform="matrix(1, 0, 0, 1, -9, -8.36)" filter="url(#Tracé_5898)">
+              <path id="Tracé_5898-3" data-name="Tracé 5898" d="M104.732,0,97.946,11.912,104.732,23.6l6.527-11.8Z" transform="translate(-75.56 8.36)" fill="rgba(239,153,33,0.24)"/>
+            </g>
+          </g>
+        </g>
+        <line id="Ligne_81" data-name="Ligne 81" y1="5.193" x2="2.732" transform="translate(2.187 7.592)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <line id="Ligne_82" data-name="Ligne 82" y1="9.292" x2="4.645" transform="translate(4.919 3.492)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <line id="Ligne_83" data-name="Ligne 83" y1="3.006" x2="1.776" transform="translate(7.336 9.778)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <line id="Ligne_84" data-name="Ligne 84" y1="7.516" x2="4.373" transform="translate(10.752 5.269)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <line id="Ligne_85" data-name="Ligne 85" y1="1.093" x2="1.64" transform="translate(8.976 8.822)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <line id="Ligne_86" data-name="Ligne 86" y1="2.186" x2="0.957" transform="translate(10.479 6.772)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <line id="Ligne_87" data-name="Ligne 87" x1="0.821" y1="2.05" transform="translate(14.305 3.356)" fill="none" stroke="#fefefe" stroke-width="0.5"/>
+        <g id="Ellipse_55" data-name="Ellipse 55" transform="translate(4.168 5.815)" fill="none" stroke="#fefefe" stroke-width="0.5">
+          <circle cx="1.025" cy="1.025" r="1.025" stroke="none"/>
+          <circle cx="1.025" cy="1.025" r="0.775" fill="none"/>
+        </g>
+        <g id="Ellipse_56" data-name="Ellipse 56" transform="translate(8.814 1.648)" fill="none" stroke="#fefefe" stroke-width="0.5">
+          <circle cx="1.025" cy="1.025" r="1.025" stroke="none"/>
+          <circle cx="1.025" cy="1.025" r="0.775" fill="none"/>
+        </g>
+        <g id="Ellipse_57" data-name="Ellipse 57" transform="translate(10.616 5.064)" fill="none" stroke="#fefefe" stroke-width="0.5">
+          <circle cx="1.025" cy="1.025" r="1.025" stroke="none"/>
+          <circle cx="1.025" cy="1.025" r="0.775" fill="none"/>
+        </g>
+        <g id="Ellipse_58" data-name="Ellipse 58" transform="translate(13.075 1.648)" fill="none" stroke="#fefefe" stroke-width="0.5">
+          <circle cx="1.025" cy="1.025" r="1.025" stroke="none"/>
+          <circle cx="1.025" cy="1.025" r="0.775" fill="none"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
