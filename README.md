@@ -1,6 +1,6 @@
-# ckanext-publications-qld-theme
+# ckanext-safran-opendata-theme
 
-A custom CKAN extension for Publications.Qld
+A custom CKAN extension for SAFOPENDATA
 
 [![CircleCI](https://circleci.com/gh/qld-gov-au/ckanext-publications-qld-theme/tree/develop.svg?style=shield)](https://circleci.com/gh/qld-gov-au/ckanext-publications-qld-theme/tree/develop)
 
