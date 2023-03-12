@@ -94,7 +94,7 @@
           {% set dataset_search_route = 'dataset.search' if h.is_ckan_29() else 'search' %}
           <li {% if publications_active %}class="active"{% endif %}><a href="{{ h.url_for(dataset_search_route) }}">Data</a></li>
           <li {% if standards_active %}class="active"{% endif %}>
-            <a href="/dataset/pages/" >Standards</a>
+            <a href="/pages/" >Standards</a>
           </li>
           <li {% if organization_active %}class="active"{% endif %}>
             <a href="/organization">Organisations</a>
