@@ -4,7 +4,7 @@
   {% endif %}
   <i class="fa icon fa-{{ activity.icon }}"></i>
   <p>
-    {% set activity_data = h.data_qld_format_activity_data(activity.msg.format(**activity.data)) %}
+    {% set activity_data = h.opendata_format_activity_data(activity.msg.format(**activity.data)) %}
     {{ h.literal(activity_data) }}
     <span class="date" title="{{ h.render_datetime(activity.timestamp, with_hours=True) }}">{{ h.time_ago_from_timestamp(activity.timestamp) }}</span>
   </p>
