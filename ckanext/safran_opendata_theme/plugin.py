@@ -8,7 +8,8 @@ from ckan.plugins.toolkit import add_resource, add_public_directory, \
     add_template_directory, c, config, check_ckan_version, get_action, request
 
 from . import blueprints
-
+from . import helpers
+from .stats import Stats
 
 def get_gtm_code():
     # To get Google Tag Manager Code
@@ -179,6 +180,23 @@ class SafranOpenDataThemePlugin(plugins.SingletonPlugin):
             'unreplied_comments_x_days': unreplied_comments_x_days,
             'is_reporting_enabled': is_reporting_enabled,
             'is_ckan_29': is_ckan_29,
+            'top_organisations': Stats.top_organisations,
+            'top_categories': Stats.top_categories,
+            'resource_count': Stats.resource_count,
+            'resource_report': Stats.resource_report,
+            'resource_org_count': Stats.resource_org_count,
+            'random_tags': helpers.random_tags,
+            'format_resource_filesize': helpers.format_resource_filesize,
+            'group_id_for': helpers.group_id_for,
+            'format_attribution_date': helpers.format_attribution_date,
+            'get_validation_resources': helpers.get_validation_resources,
+            'get_resource_name': helpers.get_resource_name,
+            'generate_download_url': helpers.generate_download_url,
+            'generate_json_schema': helpers.generate_json_schema,
+            'opendata_organisation_list': helpers.organisation_list,
+            'opendata_user_has_admin_access': helpers.user_has_admin_access,
+            'opendata_format_activity_data': helpers.format_activity_data,
+            'activity_type_nice': helpers.activity_type_nice,
         }
 
     # IBlueprint
