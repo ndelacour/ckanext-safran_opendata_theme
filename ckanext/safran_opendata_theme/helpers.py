@@ -6,7 +6,7 @@ import logging
 import random
 import requests
 
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 
 from ckan import model
 from ckan.lib import formatters
@@ -89,17 +89,18 @@ def format_activity_data(data):
     :rtype: string
 
     """
-    if (user_has_admin_access(True)):
-        return data
+    #if (user_has_admin_access(True)):
+    #    return data
 
-    soup = BeautifulSoup(data, 'html.parser')
+    #soup = BeautifulSoup(data, 'html.parser')
 
-    for actor in soup.select(".actor"):
-        actor.string = 'Publisher'
-        # the img element is removed from actor span so need to move actor span to the left to fill up blank space
-        actor['style'] = 'margin-left:-40px'
+    #for actor in soup.select(".actor"):
+    #    actor.string = 'Publisher'
+    #    # the img element is removed from actor span so need to move actor span to the left to fill up blank space
+    #    actor['style'] = 'margin-left:-40px'
 
-    return soup.prettify(formatter="html5")
+    #return soup.prettify(formatter="html5")
+    return data
 
 
 def activity_type_nice(activity_type):
